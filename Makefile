@@ -6,11 +6,14 @@ SRC_PATH 	= src/
 OBJ_PATH 	= obj/
 
 SRC			= main.c \
+			  get_next_line_bonus.c \
+			  get_next_line_utils_bonus.c \
+
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
-INCS	= -I ./includes/
+INCS	= -I ./includes/so_long.h 
 
 all: $(OBJ_PATH) $(NAME) 
 
@@ -21,7 +24,7 @@ $(OBJ_PATH):
 	mkdir $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -lmlx -lXext -lX11
 
 clean:
 	rm -rf $(OBJ_PATH)
