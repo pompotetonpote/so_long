@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:59:36 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/13 01:01:52 by pompote          ###   ########.fr       */
+/*   Updated: 2023/01/14 15:08:24 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	read_and_stash(int fd, t_list **stash)
 		if (!buf)
 			return ;
 		parsed = read(fd, buf, BUFFER_SIZE);
-		if ((parsed == 0 && *stash == NULL) || parsed == -1 )
+		if ((parsed == 0 && *stash == NULL) || parsed == -1)
 		{
 			free(buf);
 			return ;

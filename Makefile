@@ -6,8 +6,10 @@ SRC_PATH 	= src/
 OBJ_PATH 	= obj/
 
 SRC			= main.c \
+			  extract_map.c \
 			  get_next_line_bonus.c \
 			  get_next_line_utils_bonus.c \
+			  utils.c \
 
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
@@ -24,7 +26,7 @@ $(OBJ_PATH):
 	mkdir $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -lmlx -lXext -lX11
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) 
 
 clean:
 	rm -rf $(OBJ_PATH)
