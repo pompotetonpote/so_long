@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:54:29 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/14 16:49:11 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:47:28 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ void	free_map(t_map **map)
 
 	if (!map || !(*map))
 		return ;
+	if (!(*map)->map_line || !((*map)->map_line))
+		return ;
 	while (*map)
 	{
+//		free((*map)->map_line);
 		tmp = (*map)->next;
 		free(*map);
 		*map = tmp;

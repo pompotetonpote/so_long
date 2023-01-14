@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:16:21 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/14 16:42:25 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:37:21 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,19 @@ t_map	*extract_map(char **argv)
 	map_file = open(*argv, O_RDONLY);
 	while (1)
 	{
+		printf("A\n");
 		map = new_map_line(get_next_line(map_file));
-		if (!map->map_line)
-			break ;
+		printf("B\n");
 		printf("%s", map->map_line);
+		if (!map->map_line || !read(map_file, 0, 1))
+		{
+			printf("joker\n");
+			break ;
+		}
+		printf("C\n");
 		map = map->next;
 	}
+	printf("doublejoker\n");
 	free(map->map_line);
 	close(map_file);
 	return (map);
