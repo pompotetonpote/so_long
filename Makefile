@@ -11,13 +11,14 @@ SRC			= main.c \
 			  get_next_line_bonus.c \
 			  get_next_line_utils_bonus.c \
 			  map_parsing.c \
+			  map_parsing_check.c \
 			  utils.c \
 
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
-INCS	= -I ./includes/so_long.h 
+INCS	= -I ../includes/so_long.h 
 
 all: $(OBJ_PATH) $(NAME) 
 

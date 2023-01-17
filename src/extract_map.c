@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extract_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:16:21 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/17 16:47:55 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/01/17 22:01:34 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	add_new_map_line(t_map **map, t_map *new_map_line_elem)
 	last->next = new_map_line_elem;
 }
 
-/* Check if linked list is up
-void	linkedlist_check(int i, t_map **map)
+/* Check if linked list is up */
+/*void	linkedlist_check(int i, t_map **map)
 {
 	int	r;
 
@@ -71,6 +71,7 @@ t_map	*extract_map(char **argv)
 	t_map	*map;
 	int		i;
 	int		map_file;
+	char	*buf[1];
 
 	i = 0;
 	map = NULL;
@@ -81,7 +82,7 @@ t_map	*extract_map(char **argv)
 			map = new_map_line(get_next_line(map_file));
 		else
 			add_new_map_line(&map, new_map_line(get_next_line(map_file)));
-		if (!map->map_line || !read(map_file, 0, 1))
+		if (!map->map_line || !read(map_file, buf, 1)) /*on Macosx !read(map_file, 0, 1), on linux (!read(map_file, buf, 1))*/
 			break ;
 		i++;
 	}

@@ -3,39 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:03:13 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/17 18:00:42 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/01/17 23:44:51 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-int	check_line_size(t_map **map, t_elems **elems)
-{
-	int	i;
-
-	i = 0;
-	(*elems)->line_size = ft_strlen((*map)->map_line);
-	(*map) = (*map)->next;
-	while (*map)
-	{
-		if (ft_strlen((*map)->map_line) != (*elems)->line_size)
-		{
-			error("Error : different size line");
-		}
-		else
-			(*map) = (*map)->next;
-	}
-	return (1);
-}
-
-int	check_squared_and_lines(t_map **map, t_elems **elems)
-{
-	check_line_size(&map, &elems);
-	return (1);
-}
 
 t_elems	*new_elems_tab(void)
 {
@@ -57,8 +32,8 @@ void	map_parsing(t_map **map)
 
 	(void) map;
 	elems = new_elems_tab();
-	if (check_squared_and_lines(&map, &elems) == 1)
-		ft_pustr("GOOD check square\n");
+	if (check_squared_and_lines(map, &elems) == 1)
+		ft_putstr("GOOD check square\n");
 //	check_elems()
 //	check_path()
 	free(elems);

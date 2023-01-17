@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/17 18:00:33 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/01/17 22:57:42 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_elems
 	int			e;
 	int			c;
 	int			p;
+	int			first_line;
 	size_t		line_size;
 }	t_elems;
 
@@ -52,5 +53,7 @@ int		ft_rev_strncmp(const char *str1, const char *str2, size_t n);
 
 void	check_args_errors(int argc, char **argv);
 void	map_parsing(t_map **map);
+int		error_log(char *str);
+int		check_squared_and_lines(t_map **map, t_elems **elems);
 
 #endif
