@@ -10,6 +10,7 @@ SRC			= main.c \
 			  extract_map.c \
 			  get_next_line_bonus.c \
 			  get_next_line_utils_bonus.c \
+			  map_parsing.c \
 			  utils.c \
 
 
