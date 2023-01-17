@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:25:58 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/14 18:36:13 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:31:57 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ int	main( int argc, char **argv)
 	t_map	*map;
 
 	map = NULL;
-	if (argc < 2)
-		return (0);
+	check_premap_errors(argc, argv);
 	map = extract_map (&argv[1]);
-	printf("jokermain\n");
+	check_postmap_errors(map);
 	free_map(&map);
 	return (0);
 }

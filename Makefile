@@ -1,11 +1,12 @@
 CC			= gcc -g
-CFLAGS		= -Werror -Wall -Wextra -fsanitize=address
+CFLAGS		= -Werror -Wall -Wextra #-fsanitize=address
 NAME		= so_long
 
 SRC_PATH 	= src/
 OBJ_PATH 	= obj/
 
 SRC			= main.c \
+			  check_errors.c \
 			  extract_map.c \
 			  get_next_line_bonus.c \
 			  get_next_line_utils_bonus.c \
