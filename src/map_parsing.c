@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:03:13 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/17 23:44:51 by pompote          ###   ########.fr       */
+/*   Updated: 2023/01/18 17:08:07 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	map_parsing(t_map **map)
 	t_elems	*elems;
 
 	(void) map;
+	linkedlist_check(6, map);
+	printf("%d\n", ft_lstsize(*map));
 	elems = new_elems_tab();
 	if (check_squared_and_lines(map, &elems) == 1)
 		ft_putstr("GOOD check square\n");

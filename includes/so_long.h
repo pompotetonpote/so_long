@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/17 22:57:42 by pompote          ###   ########.fr       */
+/*   Updated: 2023/01/18 17:07:38 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,15 @@ char	*ft_strchr(const char *str, int a);
 void	free_map(t_map **map);
 void	ft_putstr(char *str);
 int		ft_rev_strncmp(const char *str1, const char *str2, size_t n);
+int		ft_lstsize(t_map *lst);
 /* Errors */
 
 void	check_args_errors(int argc, char **argv);
 void	map_parsing(t_map **map);
 int		error_log(char *str);
 int		check_squared_and_lines(t_map **map, t_elems **elems);
+
+/*test map*/
+void	linkedlist_check(int i, t_map **map);
 
 #endif

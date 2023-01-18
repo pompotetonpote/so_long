@@ -3,27 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:57:10 by pompote           #+#    #+#             */
-/*   Updated: 2023/01/18 01:45:17 by pompote          ###   ########.fr       */
+/*   Updated: 2023/01/18 17:12:06 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static int	check_line_size(t_map *map, t_elems *elems)
+static int	check_line_size(t_map **map, t_elems *elems)
 {
-	elems->line_size = ft_strlen(map->map_line);
-	map = map->next;
+	elems->line_size = ft_strlen((*map)->map_line);
+	linkedlist_check(6, map);
+	map = &(*map)->next;
 	while (map)
 	{
 //		if (map->next == NULL)
 //			elems->line_size -= 1; // je décremente line_size car ft_strlen compte un de moins pour la derniere ligne
-		if (ft_strlen(map->map_line) != elems->line_size)
+		if (ft_strlen((*map)->map_line) != elems->line_size)
 			error_log("Error : different line size\n");
 		else
-			map = map->next;
+			map = &(*map)->next;
 	}
 	return (1);
 }
@@ -93,7 +94,7 @@ static int	check_1_square(t_map *map, t_elems *elems)
 
 int	check_squared_and_lines(t_map **map, t_elems **elems)
 {
-	check_line_size(*map, *elems);
+	check_line_size(map, *elems);
 	check_1_square(*map, *elems);
 
 	return (1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:54:29 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/17 22:01:31 by pompote          ###   ########.fr       */
+/*   Updated: 2023/01/18 17:02:19 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,19 @@ int	ft_rev_strncmp(const char *str1, const char *str2, size_t n)
 		n--;
 	}
 	return ((unsigned char)str1[n] - (unsigned char)str2[i]);
+}
+
+int	ft_lstsize(t_map *lst)
+{
+	int		i;
+	t_map	*tmp;
+
+	tmp = lst;
+	i = 0;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }
