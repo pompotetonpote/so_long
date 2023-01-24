@@ -6,7 +6,7 @@
 /*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:57:10 by pompote           #+#    #+#             */
-/*   Updated: 2023/01/24 14:39:47 by pompote          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:14:43 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,18 @@ static int	check_1_square(t_map *map, t_elems *elems)
 			check_interline(map->map_line, elems);
 		else if (map->next == NULL)
 			check_1(map->map_line, elems);
-		if (elems->e > 1 || elems->p > 1)
-			error_log("Error : too many 'exit' or 'spawn point'\n");
+		if (elems->e > 1)
+			error_log("Error : too many 'exits'\n");
+		if (elems->p > 1)
+			error_log("Error : too many 'spawn point'\n");
 		map = map->next;
 	}
 	if (elems->e < 1)
 		error_log("Error : need one exit\n");
 	if (elems->p < 1)
 		error_log("Error : need one spawn point\n");
+	if (elems->c < 1)
+		error_log("Error : need at leat one 'collectible'\n");
 	return (1);
 }
 
