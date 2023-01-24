@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/18 18:29:13 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/01/24 14:55:57 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ int		error_log(char *str);
 int		check_squared_and_lines(t_map **map, t_elems **elems);
 
 /*test map*/
-void	linkedlist_check(int i, t_map **map);
+void	linkedlist_check(t_map **map);
 
 #endif

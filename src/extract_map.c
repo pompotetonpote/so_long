@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extract_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:16:21 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/18 18:29:08 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/01/24 14:57:11 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_map	*new_map_line(char *line)
 	if (!new_map_line)
 		return (NULL);
 	new_map_line->map_line = line;
+	new_map_line->next = NULL;
 	return (new_map_line);
 }
 
@@ -35,10 +36,7 @@ t_map	*get_last_map_element(t_map *map)
 t_map	*get_before_last_map_element(t_map *map)
 {
 	while (map && map->next && map->next->next != NULL)
-	{
-		printf("print");
 		map = map->next;
-	}
 	return (map);
 }
 
@@ -55,8 +53,7 @@ void	*add_new_map_line(t_map **map, t_map *new_map_line_elem)
 		*map = new_map_line_elem;
 		return (map);
 	}
-	while (!last->next)
-		last = last->next;
+	last = get_last_map_element(*map);
 	last->next = new_map_line_elem;
 	return (new_map_line_elem);
 }
@@ -77,18 +74,18 @@ void	ft_lstadd_back(t_map **map, t_map *new_map_line_elem)
 }
 
 /* Check if linked list is up */
-void	linkedlist_check(int i, t_map **map)
+void	linkedlist_check(t_map **map)
 {
-	int	r;
+	int	i;
 
-	r = i + 1;
+	i = 1;
 	if (map)
 	{
 		while (*map)
 		{
-			printf("line %d: %s\n", r - i, (*map)->map_line);
+			printf("line %d: %s\n", i, (*map)->map_line);
 			map = &(*map)->next;
-			i--;
+			i++;
 		}
 	}
 }
@@ -126,25 +123,27 @@ t_map	*extract_map(char **argv)
 	map = NULL;
 	head = NULL;
 	map_file = open(*argv, O_RDONLY);
+	if (map_file == -1)
+		return (0);
+	map = new_map_line(get_next_line(map_file));
+	head = map;
 	while (1)
 	{
-		if (i == 0)
-		{
-			map = new_map_line(get_next_line(map_file));
-			head = map;
-		}
-		else
-			map = add_new_map_line(&map, new_map_line(get_next_line(map_file)));
+		map = add_new_map_line(&map, new_map_line(get_next_line(map_file)));
 		if (!map->map_line) /*on Macosx !read(map_file, 0, 1), on linux (!read(map_file, buf, 1))*/
 			break ;
 		i++;
 	}
-	linkedlist_check(i, &head);
+//	linkedlist_check(&map);
+//	free(map->map_line);
+//	free(map);	
+//	linkedlist_check(&head);
 	map = get_before_last_map_element(head);
 	map->next = NULL;
-	free(map->map_line);
-	free(map);
-//	line_break_suppression(&map);
+
+	line_break_suppression(&head);
+//	linkedlist_check(&head);
+
 
 	close(map_file);
 	return (head);
