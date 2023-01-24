@@ -8,6 +8,7 @@ OBJ_PATH 	= obj/
 SRC			= main.c \
 			  check_errors.c \
 			  extract_map.c \
+			  linked_list_utils.c \
 			  get_next_line_bonus.c \
 			  get_next_line_utils_bonus.c \
 			  map_parsing.c \

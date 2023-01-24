@@ -6,7 +6,7 @@
 /*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/24 14:55:57 by pompote          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:19:26 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,14 @@ void	free_map(t_map **map);
 void	ft_putstr(char *str);
 int		ft_rev_strncmp(const char *str1, const char *str2, size_t n);
 int		ft_lstsize(t_map *lst);
+
+/* Linked List Utils*/
+t_map	*new_map_line(char *line);
+t_map	*get_last_map_element(t_map *map);
+t_map	*get_before_last_map_element(t_map *map);
+void	*add_new_map_line(t_map **map, t_map *new_map_line_elem);
+void	ft_lstadd_back(t_map **map, t_map *new_map_line_elem);
+
 /* Errors */
 
 void	check_args_errors(int argc, char **argv);
