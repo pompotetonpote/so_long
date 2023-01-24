@@ -6,7 +6,7 @@
 /*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:57:10 by pompote           #+#    #+#             */
-/*   Updated: 2023/01/24 15:14:43 by pompote          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:25:52 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,5 @@ int	check_squared_and_lines(t_map **map, t_elems **elems)
 {
 	check_line_size(map, *elems);
 	check_1_square(*map, *elems);
-
 	return (1);
 }

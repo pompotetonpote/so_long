@@ -6,7 +6,7 @@
 /*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:03:13 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/24 14:01:37 by pompote          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:26:06 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	map_parsing(t_map **map)
 	t_elems	*elems;
 
 	(void) map;
-//	linkedlist_check(6, map);
 	printf("%d\n", ft_lstsize(*map));
 	elems = new_elems_tab();
 	if (check_squared_and_lines(map, &elems) == 1)
