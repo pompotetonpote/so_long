@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:57:10 by pompote           #+#    #+#             */
-/*   Updated: 2023/01/24 15:25:52 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/01 11:37:13 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static int	check_line_size(t_map **map, t_elems *elems)
+static void	check_line_size(t_map **map, t_elems *elems)
 {
 	elems->line_size = ft_strlen((*map)->map_line);
 	map = &(*map)->next;
@@ -28,7 +28,6 @@ static int	check_line_size(t_map **map, t_elems *elems)
 				break ;
 		}
 	}
-	return (1);
 }
 
 static void	check_1(char *str, t_elems *elems)

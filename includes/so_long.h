@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/24 15:19:26 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/01 17:09:11 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,16 @@
 # include <unistd.h>
 # include "../get_next_line_bonus/get_next_line_bonus.h"
 
-typedef struct s_param
+typedef struct s_tab
 {
-	int				lines;
+	int	*tab;
+}	t_tab;
 
-}	t_param;
+typedef struct s_map
+{
+	char			*map_line;
+	struct s_map	*next;
+}	t_map;
 
 typedef struct s_elems
 {
@@ -31,14 +36,10 @@ typedef struct s_elems
 	int			c;
 	int			p;
 	int			first_line;
+	int			map_line_nbr;
+	int			tab_tot_size;
 	size_t		line_size;
 }	t_elems;
-
-typedef struct s_map
-{
-	char			*map_line;
-	struct s_map	*next;
-}	t_map;
 
 /* Map initialisation */
 
@@ -64,6 +65,7 @@ void	check_args_errors(int argc, char **argv);
 void	map_parsing(t_map **map);
 int		error_log(char *str);
 int		check_squared_and_lines(t_map **map, t_elems **elems);
+void	check_path(t_map **map, t_elems	*elems);
 
 /*test map*/
 void	linkedlist_check(t_map **map);
