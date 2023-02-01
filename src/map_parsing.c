@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:03:13 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/01 17:10:33 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:59:05 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ void	map_parsing(t_map **map)
 	(void) map;
 	elems = new_elems_tab();
 	if (check_squared_and_lines(map, &elems) == 1)
-		ft_putstr("Square & Elems Check Good\n");
+		ft_putstr("Square & Elems checked !\n");
 	elems->map_line_nbr = ft_lstsize(*map);
 	elems->tab_tot_size = elems->line_size * elems->map_line_nbr;
-	printf("\n--------------->%d\n", elems->map_line_nbr);
-	printf("\n--------------->%d\n", elems->tab_tot_size);
 	check_path(map, elems);
 	free(elems);
 }
