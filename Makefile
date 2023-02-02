@@ -15,6 +15,7 @@ SRC			= main.c \
 			  map_parsing_check.c \
 			  utils.c \
 			  check_paths.c \
+			  check_paths_bt.c \
 
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
