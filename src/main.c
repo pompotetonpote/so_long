@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:25:58 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/01 22:41:08 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/08 17:33:54 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@ création de la map
 
 4. créer la map avec le sprite correspondant avec minilibx   */
 
+void	windows_init(void)
+{
+	void	*mlx;
+//	void	*mlx_win;
+
+	mlx = mlx_init();
+//	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+	mlx_loop(mlx);
+}
+
 int	main( int argc, char **argv)
 {
 	t_map	*map;
@@ -31,6 +41,7 @@ int	main( int argc, char **argv)
 	check_args_errors(argc, argv);
 	map = extract_map (&argv[1]);
 	map_parsing(&map);
+	windows_init();
 	free_map(&map);
 	return (0);
 }

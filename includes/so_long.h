@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/01 22:18:23 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/08 17:26:43 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include "../get_next_line_bonus/get_next_line_bonus.h"
-
+# if defined(__APPLE__) && defined(__MACH__)
+#  include "./mlx/mlx.h"
+# else
+#  include "../mlx-linux/mlx.h"
+# endif
 typedef struct s_tab
 {
 	int	*tab;
