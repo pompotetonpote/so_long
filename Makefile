@@ -17,16 +17,25 @@ SRC			= main.c \
 			  check_paths.c \
 			  check_paths_bt.c \
 
+MLXLIB			=		./mlx/libmlx.a
+LIBFT_MLX		=		$(MAKE) -C libft && $(MAKE) -C mlx
+MINILBX			=		-Lmlx -lmlx -framework OpenGL -framework AppKit
 
-SRCS	= $(addprefix $(SRC_PATH), $(SRC))
-OBJ		= $(SRC:.c=.o)
-OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
-INCS	= -I ../includes/so_long.h 
+ifeq ($(shell uname), Linux)
+MLXLIB			=		./mlx-linux/libmlx.a
+LIBFT_MLX		=		$(MAKE) -C libft && $(MAKE) -C mlx-linux
+MINILBX			=		-L ./mlx-linux/ -lmlx -Ilmlx -lXext -lX11
+endif
+
+SRCS			=		$(addprefix $(SRC_PATH), $(SRC))
+OBJ				= 		$(SRC:.c=.o)
+OBJS			=		$(addprefix $(OBJ_PATH), $(OBJ))
+INCS			=		-I ../includes/so_long.h 
 
 all: $(OBJ_PATH) $(NAME) 
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
+	$(CC) $(CFLAGS) -c $(MINILBX) $< -o $@ $(INCS)
 
 $(OBJ_PATH):
 	mkdir $(OBJ_PATH)
