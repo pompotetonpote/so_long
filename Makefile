@@ -18,12 +18,12 @@ SRC			= main.c \
 			  check_paths_bt.c \
 
 MLXLIB			=		./mlx/libmlx.a
-LIBFT_MLX		=		$(MAKE) -C mlx-linux
+LIBFT_MLX		=		$(MAKE) -C mlx
 MINILBX			=		-Lmlx -lmlx -framework OpenGL -framework AppKit
 
 ifeq ($(shell uname), Linux)
 MLXLIB			=		./mlx-linux/libmlx.a
-LIBFT_MLX		=		$(MAKE) -C libft && $(MAKE) -C mlx-linux
+LIBFT_MLX		=		$(MAKE) -C mlx-linux
 MINILBX			=		-L ./mlx-linux/ -lmlx -Ilmlx -lXext -lX11
 endif
 
@@ -32,22 +32,27 @@ OBJ				= 		$(SRC:.c=.o)
 OBJS			=		$(addprefix $(OBJ_PATH), $(OBJ))
 INCS			=		-I ../includes/so_long.h 
 
-all: $(OBJ_PATH) $(NAME) 
+all: start $(OBJ_PATH) $(NAME) 
+
+start :
+	$(LIBFT_MLX)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(CFLAGS) $(MINILBX) -c  $< -o $@ $(INCS)
+	$(CC) $(CFLAGS) -c  $< -o $@ $(INCS)
 
 $(OBJ_PATH):
 	mkdir $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) 
+	$(CC) $(CFLAGS) $(OBJS) $(MINILBX) -o $(NAME) 
 
 clean:
 	rm -rf $(OBJ_PATH)
+	cd mlx && make clean
 
 fclean: clean
 	rm -f $(NAME)
+	cd mlx && make clean
 
 re: fclean all
 
