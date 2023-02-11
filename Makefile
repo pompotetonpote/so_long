@@ -16,6 +16,7 @@ SRC			= main.c \
 			  utils.c \
 			  check_paths.c \
 			  check_paths_bt.c \
+			  graphic.c \
 
 MLXLIB			=		./mlx/libmlx.a
 LIBFT_MLX		=		$(MAKE) -C mlx
