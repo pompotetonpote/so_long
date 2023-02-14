@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/11 16:43:34 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:56:48 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_map
 	struct s_map	*next;
 }	t_map;
 
-typedef struct s_elems
+typedef struct s_params
 {
 	int			e;
 	int			pf_e;
@@ -45,40 +45,42 @@ typedef struct s_elems
 	int			first_line;
 	int			map_line_nbr;
 	int			tab_tot_size;
+	t_tab		*mtab;
 	size_t		line_size;
-}	t_elems;
+}	t_params;
 
 /* Map initialisation */
 
-t_map	*extract_map(char **argv);
+t_map		*extract_map(char **argv);
+t_params	*init_elems(void);
 
 /* Utils */
-char	*ft_strchr(const char *str, int a);
-void	free_map(t_map **map);
-void	ft_putstr(char *str);
-int		ft_rev_strncmp(const char *str1, const char *str2, size_t n);
-int		ft_lstsize(t_map *lst);
+char		*ft_strchr(const char *str, int a);
+void		free_map(t_map **map);
+void		ft_putstr(char *str);
+int			ft_rev_strncmp(const char *str1, const char *str2, size_t n);
+int			ft_lstsize(t_map *lst);
 
 /* Linked List Utils*/
-t_map	*new_map_line(char *line);
-t_map	*get_last_map_element(t_map *map);
-t_map	*get_before_last_map_element(t_map *map);
-void	*add_new_map_line(t_map **map, t_map *new_map_line_elem);
-void	ft_lstadd_back(t_map **map, t_map *new_map_line_elem);
+t_map		*new_map_line(char *line);
+t_map		*get_last_map_element(t_map *map);
+t_map		*get_bf_last_map_element(t_map *map);
+void		*add_new_map_line(t_map **map, t_map *new_map_line_elem);
+void		ft_lstadd_back(t_map **map, t_map *new_map_line_elem);
 
 /* Errors */
 
-void	check_args_errors(int argc, char **argv);
-void	map_parsing(t_map **map);
-int		error_log(char *str);
-int		check_squared_and_lines(t_map **map, t_elems **elems);
-void	check_path(t_map **map, t_elems	*elems);
-void	print_tab(t_tab *tab, t_elems *elems);
-int		find_spawn(t_tab *mtab, int spawn, t_elems *elems);
-void	increm_elem(t_tab *maptab, int x, t_elems *nb_elems);
-void	trackm(t_tab *mtab, int spa, t_tab *tr_tb, t_elems *elems);
+void		check_args_errors(int argc, char **argv);
+void		map_parsing(t_map **map, t_params *elems);
+int			error_log(char *str);
+int			check_squared_and_lines(t_map **map, t_params **elems);
+void		check_path(t_map **map, t_params	*elems);
+void		print_tab(t_tab *tab, t_params *elems);
+int			find_spawn(t_tab *mtab, int spawn, t_params *elems);
+void		increm_elem(t_tab *maptab, int x, t_params *nb_elems);
+void		trackm(t_tab *mtab, int spa, t_tab *tr_tb, t_params *elems);
 
 /*test map*/
-void	linkedlist_check(t_map **map);
+void		linkedlist_check(t_map **map);
 
 #endif

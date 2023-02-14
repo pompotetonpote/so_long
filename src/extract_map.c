@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:16:21 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/01 15:06:27 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:25:42 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_map	*extract_map(char **argv)
 	}
 //	free(map->map_line);
 //	free(map);	
-	map = get_before_last_map_element(head);
+	map = get_bf_last_map_element(head);
 	map->next = NULL;
 	line_break_suppression(&head);
 //	linkedlist_check(&head);

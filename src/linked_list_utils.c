@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 15:17:42 by pompote           #+#    #+#             */
-/*   Updated: 2023/01/24 15:19:57 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:25:38 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_map	*get_last_map_element(t_map *map)
 	return (map);
 }
 
-t_map	*get_before_last_map_element(t_map *map)
+t_map	*get_bf_last_map_element(t_map *map)
 {
 	while (map && map->next && map->next->next != NULL)
 		map = map->next;

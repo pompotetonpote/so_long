@@ -1,15 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphic.c                                          :+:      :+:    :+:   */
+/*   imgxpm.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 15:42:19 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/14 15:25:39 by yperonne         ###   ########.fr       */
+/*   Created: 2023/02/14 14:01:28 by yperonne          #+#    #+#             */
+/*   Updated: 2023/02/14 15:16:49 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#ifndef IMGXPM_H
+# define IMGXPM_H
 
+# define WALL "./crystal_green3.xpm"
 
+#endif

@@ -3,22 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_paths.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:32:40 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/01 22:41:07 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:59:08 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-t_elems	*init_elems(t_elems *elems)
-{
-	elems = malloc(sizeof * elems);
-	return (elems);
-}
-
-t_tab	*filltab(t_map **map, t_tab *maptab, int bool, t_elems *elems)
+t_tab	*filltab(t_map **map, t_tab *maptab, int bool, t_params *elems)
 {
 	int	i;
 	int	j;
@@ -45,7 +39,7 @@ t_tab	*filltab(t_map **map, t_tab *maptab, int bool, t_elems *elems)
 	return (maptab);
 }
 
-t_tab	*init_tab(t_tab *mtab, t_elems *elems)
+t_tab	*init_tab(t_tab *mtab, t_params *elems)
 {
 	mtab = malloc(sizeof * mtab);
 	if (!mtab)
@@ -56,7 +50,7 @@ t_tab	*init_tab(t_tab *mtab, t_elems *elems)
 	return (mtab);
 }
 
-void	check_elems_nbr(t_elems *parsed_elems, t_elems *pathed_elems)
+void	check_elems_nbr(t_params *parsed_elems, t_params *pathed_elems)
 {
 	if (parsed_elems->c != pathed_elems->pf_c)
 		error_log("Error : All items to be collected are not accessible !\n");
@@ -66,26 +60,25 @@ void	check_elems_nbr(t_elems *parsed_elems, t_elems *pathed_elems)
 		ft_putstr("All paths checked !\n");
 }
 
-void	check_path(t_map **map, t_elems	*elems)
+void	check_path(t_map **map, t_params	*elems)
 {
-	t_tab	*mtab;
 	t_tab	*tracetab;
 	int		spawn;
 
 	spawn = 0;
-	mtab = NULL;
+	elems->mtab = NULL;
 	tracetab = NULL;
-	mtab = init_tab(mtab, elems);
+	elems->mtab = init_tab(elems->mtab, elems);
 	tracetab = init_tab(tracetab, elems);
 	elems->pf_c = 0;
 	elems->pf_e = 0;
-	mtab = filltab(map, mtab, 1, elems);
+	elems->mtab = filltab(map, elems->mtab, 1, elems);
 	tracetab = filltab(map, tracetab, 0, elems);
-	spawn = find_spawn(mtab, spawn, elems);
-	print_tab(mtab, elems);
+	spawn = find_spawn(elems->mtab, spawn, elems);
+	print_tab(elems->mtab, elems);
 	print_tab(tracetab, elems);
-	trackm(mtab, spawn, tracetab, elems);
+	trackm(elems->mtab, spawn, tracetab, elems);
 	check_elems_nbr(elems, elems);
-	print_tab(mtab, elems);
+	print_tab(elems->mtab, elems);
 	print_tab(tracetab, elems);
 }

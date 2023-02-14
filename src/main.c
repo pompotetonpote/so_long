@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:25:58 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/11 16:43:23 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:02:15 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,17 @@ void	window_init(void)
 	mlx_loop(mlx);
 }
 
-// void	window_init(void)
-// {
-// 	void	*mlx;
-// 	//void	*mlx_win;
-// 	void	*img;
-
-// 	mlx = mlx_init();
-// 	img = mlx_new_image(mlx, 1920, 1080);
-// 	//mlx_win = mlx_new_window(mlx, 1920, 1080, "so_long");
-// 	//mlx_loop(mlx);
-// }
-
 int	main( int argc, char **argv)
 {
-	t_map	*map;
+	t_map		*map;
+	t_params	*params;
 
-	map = NULL;
+	params = init_elems();
 	check_args_errors(argc, argv);
 	map = extract_map (&argv[1]);
-	map_parsing(&map);
+	map_parsing(&map, params);
+	ft_putstr("LALALALALALALALALALALAA");
+	print_tab(params->mtab, params);
 	window_init();
 	free_map(&map);
 	return (0);

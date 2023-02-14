@@ -6,13 +6,13 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:57:10 by pompote           #+#    #+#             */
-/*   Updated: 2023/02/01 11:37:13 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:43:03 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void	check_line_size(t_map **map, t_elems *elems)
+static void	check_line_size(t_map **map, t_params *elems)
 {
 	elems->line_size = ft_strlen((*map)->map_line);
 	map = &(*map)->next;
@@ -22,7 +22,7 @@ static void	check_line_size(t_map **map, t_elems *elems)
 			error_log("Error : different line size\n");
 		else
 		{
-			if (!(*map)->next)
+			if ((*map)->next)
 				map = &(*map)->next;
 			else
 				break ;
@@ -30,7 +30,7 @@ static void	check_line_size(t_map **map, t_elems *elems)
 	}
 }
 
-static void	check_1(char *str, t_elems *elems)
+static void	check_1(char *str, t_params *elems)
 {
 	if (elems->first_line == 0)
 		elems->first_line += 1;
@@ -42,7 +42,7 @@ static void	check_1(char *str, t_elems *elems)
 	}
 }
 
-static void	check_interline(char *str, t_elems *elems)
+static void	check_interline(char *str, t_params *elems)
 {
 	int	i;
 
@@ -70,7 +70,7 @@ static void	check_interline(char *str, t_elems *elems)
 		error_log("Error : first or last letter != 1\n");
 }
 
-static int	check_1_square(t_map *map, t_elems *elems)
+static int	check_1_square(t_map *map, t_params *elems)
 {
 	while (map)
 	{
@@ -95,7 +95,7 @@ static int	check_1_square(t_map *map, t_elems *elems)
 	return (1);
 }
 
-int	check_squared_and_lines(t_map **map, t_elems **elems)
+int	check_squared_and_lines(t_map **map, t_params **elems)
 {
 	check_line_size(map, *elems);
 	check_1_square(*map, *elems);

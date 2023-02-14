@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_path_bt.c                                    :+:      :+:    :+:   */
+/*   check_paths_bt.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 22:03:38 by pompote           #+#    #+#             */
-/*   Updated: 2023/02/01 22:18:55 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:23:01 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	print_tab(t_tab *tab, t_elems *elems)
+void	print_tab(t_tab *tab, t_params *elems)
 {
 	int	i;
 	int	j;
@@ -32,14 +32,14 @@ void	print_tab(t_tab *tab, t_elems *elems)
 	}
 }
 
-int	find_spawn(t_tab *mtab, int spawn, t_elems *elems)
+int	find_spawn(t_tab *mtab, int spawn, t_params *elems)
 {
 	while (mtab->tab[spawn] != 'P' && spawn < elems->tab_tot_size)
 		spawn++;
 	return (spawn);
 }
 
-void	increm_elem(t_tab *maptab, int x, t_elems *elems)
+void	increm_elem(t_tab *maptab, int x, t_params *elems)
 {
 	if (maptab->tab[x] == 'C')
 		elems->pf_c += 1;
@@ -47,7 +47,7 @@ void	increm_elem(t_tab *maptab, int x, t_elems *elems)
 		elems->pf_e += 1;
 }
 
-void	trackm(t_tab *mtab, int spa, t_tab *tr_tb, t_elems *elems)
+void	trackm(t_tab *mtab, int spa, t_tab *tr_tb, t_params *elems)
 {
 	int	k;
 
