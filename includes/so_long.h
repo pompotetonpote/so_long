@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/14 15:56:48 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:38:02 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "../get_next_line_bonus/get_next_line_bonus.h"
 # if defined(__APPLE__) && defined(__MACH__)
 #  include "../mlx/mlx.h"
+#  define ESC 53
 # else
 #  include "../mlx-linux/mlx.h"
 # endif
@@ -28,6 +29,12 @@ typedef struct s_tab
 {
 	int	*tab;
 }	t_tab;
+
+typedef struct s_vars
+{
+	void		*mlx;
+	void		*win;
+}	t_vars;
 
 typedef struct s_map
 {
@@ -45,6 +52,7 @@ typedef struct s_params
 	int			first_line;
 	int			map_line_nbr;
 	int			tab_tot_size;
+	t_vars		*vars;
 	t_tab		*mtab;
 	size_t		line_size;
 }	t_params;
