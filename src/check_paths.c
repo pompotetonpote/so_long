@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:32:40 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/14 15:59:08 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:53:55 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,7 @@ void	check_path(t_map **map, t_params	*elems)
 	elems->mtab = filltab(map, elems->mtab, 1, elems);
 	tracetab = filltab(map, tracetab, 0, elems);
 	spawn = find_spawn(elems->mtab, spawn, elems);
-	print_tab(elems->mtab, elems);
-	print_tab(tracetab, elems);
 	trackm(elems->mtab, spawn, tracetab, elems);
 	check_elems_nbr(elems, elems);
-	print_tab(elems->mtab, elems);
-	print_tab(tracetab, elems);
+	elems->mtab = filltab(map, elems->mtab, 1, elems);
 }

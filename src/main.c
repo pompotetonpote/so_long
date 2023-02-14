@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:25:58 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/14 16:02:15 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:54:30 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int	main( int argc, char **argv)
 	check_args_errors(argc, argv);
 	map = extract_map (&argv[1]);
 	map_parsing(&map, params);
-	ft_putstr("LALALALALALALALALALALAA");
 	print_tab(params->mtab, params);
 	window_init();
 	free_map(&map);
