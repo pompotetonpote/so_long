@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:42:19 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/15 16:32:55 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:58:44 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ void	put_satoshi(t_vars *vars, t_params *params)
 		put_img(vars, RIGHT1, params);
 }
 
+void	put_exit(t_vars *vars, t_params *params)
+{
+	if (params->mtab->tab[params->pos] == 'E')
+		put_img(vars, VORTEX, params);
+}
+
 void	put_game(t_vars *vars, t_params *params)
 {
 	while (params->pos < ((int)params->line_size * params->lines))
@@ -48,6 +54,7 @@ void	put_game(t_vars *vars, t_params *params)
 		printf("%d : %d\n", params->pos, (int)params->line_size * params->lines);
 		put_mur(vars, params);
 		put_satoshi(vars, params);
+		put_exit(vars, params);
 		params->pos++;
 	}
 }
