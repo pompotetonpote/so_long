@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:03:13 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/14 16:34:33 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:41:45 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,17 @@ t_params	*init_elems(void)
 	elems = malloc(sizeof * elems);
 	if (!elems)
 		return (NULL);
-	elems->c = 0;
 	elems->e = 0;
+	elems->pf_e = 0;
+	elems->c = 0;
+	elems->pf_c = 0;
 	elems->p = 0;
+	elems->step = 0;
 	elems->first_line = 0;
-	elems->line_size = 0;
+	elems->map_line_nbr = 0;
+	elems->tab_tot_size = 0;
+	elems->lines = 0;
+	elems->pos = 0;
 	return (elems);
 }
 

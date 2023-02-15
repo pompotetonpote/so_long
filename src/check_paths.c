@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:32:40 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/14 16:53:55 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:23:56 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ t_tab	*filltab(t_map **map, t_tab *maptab, int bool, t_params *elems)
 				maptab->tab[i] = (*map)->map_line[j];
 				i++;
 				j++;
+				
 			}
+			elems->lines++;
 			map = &(*map)->next;
 			j = 0;
 		}

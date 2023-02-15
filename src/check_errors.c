@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:55:36 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/18 18:29:10 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/15 11:51:47 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	error_log(char *str)
 {
 	ft_putstr(str);
-	exit (1);
+	exit (EXIT_SUCCESS);
 }
 
 void	check_args_errors(int argc, char **av)
@@ -25,3 +25,4 @@ void	check_args_errors(int argc, char **av)
 	if (ft_rev_strncmp(av[1], ".ber", ft_strlen(av[1])) || !ft_strlen(av[1]))
 		error_log("Error : no '.ber' map found");
 }
+

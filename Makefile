@@ -8,6 +8,7 @@ OBJ_PATH 	= obj/
 SRC			= main.c \
 			  check_errors.c \
 			  extract_map.c \
+			  graphic.c \
 			  linked_list_utils.c \
 			  get_next_line_bonus.c \
 			  get_next_line_utils_bonus.c \
@@ -16,7 +17,7 @@ SRC			= main.c \
 			  utils.c \
 			  check_paths.c \
 			  check_paths_bt.c \
-			  graphic.c \
+			  
 
 MLXLIB			=		./mlx/libmlx.a
 LIBFT_MLX		=		$(MAKE) -C mlx

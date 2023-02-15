@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:25:58 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/14 18:02:11 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:15:00 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,6 @@ création de la map
 3. recevoir la ligne et lire lettre par lettre
 
 4. créer la map avec le sprite correspondant avec minilibx   */
-void	window_init(t_vars *vars)
-{
-	printf("window_init\n");
-	vars->mlx = mlx_init();
-	vars->win = mlx_new_window(vars->mlx, 1920, 1080, "so_long");
-}
-
 int	key_hook(int keycode, t_vars *vars)
 {
 	printf("key_hook\n");
@@ -61,7 +54,8 @@ int	main( int argc, char **argv)
 	map = extract_map (&argv[1]);
 	map_parsing(&map, params);
 	print_tab(params->mtab, params);
-	window_init(vars);
+	window_init(vars, params);
+	put_game(vars, params);
 	mlx_hook(vars->win, 17, 1L << 0, exit_window, vars);
 	mlx_hook(vars->win, 2, 1L << 0, key_hook, vars);
 	mlx_loop(vars->mlx);
