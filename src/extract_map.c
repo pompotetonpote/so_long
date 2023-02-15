@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:16:21 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/14 15:25:42 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/15 10:47:09 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ t_map	*extract_map(char **argv)
 	t_map	*head;
 	int		map_file;
 
-	map = NULL;
-	head = NULL;
 	map_file = open(*argv, O_RDONLY);
 	if (map_file == -1)
 		return (0);
 	map = new_map_line(get_next_line(map_file));
+	if (!map->map_line)
+		error_log("Error : .ber file empty\n");
 	head = map;
 	while (1)
 	{
