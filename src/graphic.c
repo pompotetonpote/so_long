@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:42:19 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/15 16:58:44 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/16 22:40:59 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,25 @@ void	put_mur(t_vars *vars, t_params *params)
 void	put_satoshi(t_vars *vars, t_params *params)
 {
 	if (params->mtab->tab[params->pos] == 'P')
-		put_img(vars, RIGHT1, params);
+		put_img(vars, STATICL, params);
 }
 
 void	put_exit(t_vars *vars, t_params *params)
 {
 	if (params->mtab->tab[params->pos] == 'E')
 		put_img(vars, VORTEX, params);
+}
+
+void	put_collectible(t_vars *vars, t_params *params)
+{
+	if (params->mtab->tab[params->pos] == 'C')
+		put_img(vars, BLOCK, params);
+}
+
+void	put_floor(t_vars *vars, t_params *params)
+{
+	if (params->mtab->tab[params->pos] == '0')
+		put_img(vars, FLOOR, params);
 }
 
 void	put_game(t_vars *vars, t_params *params)
@@ -55,6 +67,8 @@ void	put_game(t_vars *vars, t_params *params)
 		put_mur(vars, params);
 		put_satoshi(vars, params);
 		put_exit(vars, params);
+		put_collectible(vars, params);
+		put_floor(vars, params);
 		params->pos++;
 	}
 }
