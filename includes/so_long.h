@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/15 16:01:08 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/16 00:54:47 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #  define ESC 53
 # else
 #  include "../mlx-linux/mlx.h"
+#  define ESC 66
 # endif
 
 typedef struct s_tab
