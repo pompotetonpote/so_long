@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 15:17:42 by pompote           #+#    #+#             */
-/*   Updated: 2023/02/14 15:25:38 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/16 23:15:24 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_map	*new_map_line(char *line)
 {
 	t_map	*new_map_line;
 
-	new_map_line = malloc(sizeof * new_map_line);
+	new_map_line = malloc(sizeof (t_map));
 	if (!new_map_line)
 		return (NULL);
 	new_map_line->map_line = line;
