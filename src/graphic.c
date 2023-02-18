@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:42:19 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/16 23:08:34 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/18 17:50:29 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@ void	window_init(t_vars *vars, t_params *params)
 	printf("window_init\n");
 	params->lines = params->lines / 2;
 	vars->mlx = mlx_init();
-	vars->win = mlx_new_window(vars->mlx, (params->line_size) * 64, (params->lines) * 64, "so_long");
+	vars->win = mlx_new_window(vars->mlx, (params->line_size) * SIZE,
+			(params->lines) * SIZE, "so_long");
 }
 
 void	put_img(t_vars *vars, char *str, t_params *p)
 {
 	p->pos_x = p->pos % p->line_size;
 	p->pos_y = p->pos / p->line_size;
-	printf("pos_x : %d, pos_y : %d, line_size : %zu\n", p->pos_x, p->pos_y, p->line_size);
 	p->img = mlx_xpm_file_to_image(vars->mlx, str, &p->w, &p->h);
-	mlx_put_image_to_window(vars->mlx, vars->win, p->img, p->pos_x * 64, p->pos_y * 64);
+	mlx_put_image_to_window(vars->mlx, vars->win, p->img,
+		p->pos_x * SIZE, p->pos_y * SIZE);
 }
 
 void	put_init(t_vars *vars, t_params *params)
@@ -43,12 +44,16 @@ void	put_init(t_vars *vars, t_params *params)
 		put_img(vars, FLOOR, params);
 }
 
-void	put_game(t_vars *vars, t_params *params)
+void	put_game(t_vars *vars, t_params *p)
 {
-	while (params->pos < ((int)params->line_size * params->lines))
+	while (p->pos < ((int)p->line_size * p->lines))
 	{
-		printf("%d : %d\n", params->pos, (int)params->line_size * params->lines);
-		put_init(vars, params);
-		params->pos++;
+		printf("%d : %d\n", p->pos, (int)p->line_size * p->lines);
+		put_init(vars, p);
+		p->pos++;
 	}
+	p->pos = 0;
+	while (p->mtab->tab[p->pos] != 'P'
+		&& p->pos < ((int)p->line_size * p->lines))
+		p->pos++;
 }

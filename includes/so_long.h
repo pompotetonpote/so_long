@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/16 22:05:45 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/18 18:10:08 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,29 @@
 # include <unistd.h>
 # include "../get_next_line_bonus/get_next_line_bonus.h"
 # include "../img/imgxpm.h"
+# define SIZE 64
 # if defined(__APPLE__) && defined(__MACH__)
 #  include "../mlx/mlx.h"
-#  define ESC 53
+#  define ESC 		53
+#  define WKEY 		13
+#  define AKEY 		0
+#  define DKEY 		2
+#  define SKEY 		1
+#  define ARROWU 	126
+#  define ARROWL 	123
+#  define ARROWR 	124
+#  define ARROWD 	125
 # else
 #  include "../mlx-linux/mlx.h"
-#  define ESC 65307
+#  define ESC 		65307
+#  define WKEY 		53
+#  define AKEY 		53
+#  define DKEY 		53
+#  define SKEY 		53
+#  define ARROWL 	53
+#  define ARROWR 	53
+#  define ARROWD 	53
+#  define ARROWU 	53
 # endif
 
 typedef struct s_tab
@@ -44,13 +61,6 @@ typedef struct s_map
 	struct s_map	*next;
 }	t_map;
 
-// typedef struct s_img
-// {
-// 	void	*mlx_img;
-// 	int		w;
-// 	int		h;
-// }	t_img;
-
 typedef struct s_params
 {
 	int			e;
@@ -58,7 +68,11 @@ typedef struct s_params
 	int			c;
 	int			pf_c;
 	int			p;
-	int			step;
+	int			moves;
+	int			lmove;
+	int			rmove;
+	int			dmove;
+	int			umove;
 	int			first_line;
 	int			map_line_nbr;
 	int			tab_tot_size;
@@ -69,7 +83,7 @@ typedef struct s_params
 	int			w;
 	int			h;
 	void		*img;
-	// t_img		wall;
+	t_vars		*vars;
 	t_tab		*mtab;
 	size_t		line_size;
 }	t_params;
@@ -108,6 +122,14 @@ void		trackm(t_tab *mtab, int spa, t_tab *tr_tb, t_params *elems);
 /* Graphic */
 
 void		window_init(t_vars *vars, t_params *params);
+void		put_img(t_vars *vars, char *str, t_params *p);
+
+/* Movements */
+
+void		leftm(t_vars *vars, t_params *params);
+void		rightm(t_vars *vars, t_params *params);
+void		downm(t_vars *vars, t_params *params);
+void		upm(t_vars *vars, t_params *params);
 
 /*test map*/
 void		linkedlist_check(t_map **map);

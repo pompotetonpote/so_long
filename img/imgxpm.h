@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   imgxpm.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:01:28 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/16 22:40:27 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/18 18:03:58 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define LEFT1      "./img/satoshi_walk_left1.xpm"
 # define LEFT2      "./img/satoshi_walk_left2.xpm"
 # define RIGHT1     "./img/satoshi_walk_right1.xpm"
-# define RIGHT1     "./img/satoshi_walk_right1.xpm"
+# define RIGHT2     "./img/satoshi_walk_right2.xpm"
 
 /* FEATURES*/
 # define WALL       "./img/wall.xpm"

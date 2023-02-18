@@ -1,5 +1,5 @@
 CC			= gcc -g
-CFLAGS		= -Werror -Wall -Wextra -fsanitize=address
+CFLAGS		= -Werror -Wall -Wextra #-fsanitize=address
 NAME		= so_long
 
 SRC_PATH 	= src/
@@ -17,6 +17,7 @@ SRC			= main.c \
 			  utils.c \
 			  check_paths.c \
 			  check_paths_bt.c \
+			  moves.c \
 			  
 
 MLXLIB			=		./mlx/libmlx.a

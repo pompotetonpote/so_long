@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:25:58 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/15 14:15:00 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/18 18:13:48 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,29 @@ création de la map
 3. recevoir la ligne et lire lettre par lettre
 
 4. créer la map avec le sprite correspondant avec minilibx   */
-int	key_hook(int keycode, t_vars *vars)
+int	key_hook(int keycode, t_params *params)
 {
-	printf("key_hook\n");
+	if (keycode == WKEY || keycode == ARROWU)
+		upm(params->vars, params);
+	if (keycode == AKEY || keycode == ARROWL)
+		leftm(params->vars, params);
+	if (keycode == DKEY || keycode == ARROWR)
+		rightm(params->vars, params);
+	if (keycode == SKEY || keycode == ARROWD)
+		downm(params->vars, params);
 	if (keycode == ESC)
 	{
-		mlx_destroy_window(vars->mlx, vars->win);
+		mlx_destroy_window(params->vars->mlx, params->vars->win);
 		exit(EXIT_SUCCESS);
 	}
-	else
-		printf("Hello from key_hook!\n");
+	printf("moves : %d\n", params->moves);
 	return (0);
 }
 
-int	exit_window(int keycode, t_vars *vars)
+int	exit_window(int keycode, t_params *params)
 {
 	(void) keycode;
-	(void) vars;
+	free (params);
 	exit (EXIT_SUCCESS);
 }
 
@@ -46,19 +52,16 @@ int	main( int argc, char **argv)
 {
 	t_map		*map;
 	t_params	*params;
-	t_vars		*vars;
 
-	vars = malloc(sizeof (t_vars));
 	params = init_elems();
 	check_args_errors(argc, argv);
 	map = extract_map (&argv[1]);
 	map_parsing(&map, params);
 	print_tab(params->mtab, params);
-	window_init(vars, params);
-	put_game(vars, params);
-	mlx_hook(vars->win, 17, 1L << 0, exit_window, vars);
-	mlx_hook(vars->win, 2, 1L << 0, key_hook, vars);
-	mlx_loop(vars->mlx);
-	free_map(&map);
+	window_init(params->vars, params);
+	put_game(params->vars, params);
+	mlx_hook(params->vars->win, 17, 1L << 0, exit_window, params);
+	mlx_key_hook(params->vars->win, key_hook, params);
+	mlx_loop(params->vars->mlx);
 	return (0);
 }
