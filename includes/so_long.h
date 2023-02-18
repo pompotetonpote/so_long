@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/18 18:10:08 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:26:30 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@
 # else
 #  include "../mlx-linux/mlx.h"
 #  define ESC 		65307
-#  define WKEY 		53
-#  define AKEY 		53
-#  define DKEY 		53
-#  define SKEY 		53
-#  define ARROWL 	53
-#  define ARROWR 	53
-#  define ARROWD 	53
-#  define ARROWU 	53
+#  define WKEY 		119
+#  define AKEY 		97
+#  define DKEY 		100
+#  define SKEY 		115
+#  define ARROWL 	65361
+#  define ARROWR 	65363
+#  define ARROWD 	65364
+#  define ARROWU 	65362
 # endif
 
 typedef struct s_tab
