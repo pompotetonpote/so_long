@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_paths.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:32:40 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/16 23:18:04 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/19 09:59:05 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,6 @@ void	check_path(t_map **map, t_params	*elems)
 	trackm(elems->mtab, spawn, tracetab, elems);
 	check_elems_nbr(elems, elems);
 	elems->mtab = filltab(map, elems->mtab, 1, elems);
+	elems->pf_c = 0;
+	elems->pf_e = 0;
 }

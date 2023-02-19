@@ -6,7 +6,7 @@
 /*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/18 20:26:30 by yeye             ###   ########.fr       */
+/*   Updated: 2023/02/19 11:28:19 by yeye             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ void		trackm(t_tab *mtab, int spa, t_tab *tr_tb, t_params *elems);
 
 void		window_init(t_vars *vars, t_params *params);
 void		put_img(t_vars *vars, char *str, t_params *p);
+void		pos_analyze(t_params *params, int delta);
 
 /* Movements */
 
