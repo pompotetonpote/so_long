@@ -6,7 +6,7 @@
 /*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:32:40 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/20 12:16:17 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/20 17:05:37 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ t_tab	*init_tab(t_tab *mtab, t_params *elems)
 	return (mtab);
 }
 
-void	check_elems_nbr(t_params *parsed_elems, t_params *pathed_elems)
+void	check_elems_nbr(t_params *elems)
 {
-	if (parsed_elems->c != pathed_elems->pf_c)
-		error_log("Error : All items to be collected are not accessible !\n");
-	else if (parsed_elems->e != pathed_elems->pf_e)
-		error_log("Error : Path to the exit does not exists !\n");
+	if (elems->c != elems->pf_c)
+		error_log("Error : All items to be collected are not accessible !\n",
+			elems, NULL);
+	else if (elems->pf_e < elems->e)
+		error_log("Error : Path to the exit does not exists !\n", elems, NULL);
 	else
 		ft_putstr("All paths checked !\n");
 }
@@ -77,10 +78,10 @@ void	check_path(t_map **map, t_params	*elems)
 	tracetab = filltab(map, tracetab, 0, elems);
 	spawn = find_spawn(elems->mtab, spawn, elems);
 	trackm(elems->mtab, spawn, tracetab, elems);
-	check_elems_nbr(elems, elems);
+	free(tracetab->tab);
+	free(tracetab);
+	check_elems_nbr(elems);
 	elems->mtab = filltab(map, elems->mtab, 1, elems);
 	elems->pf_c = 0;
 	elems->pf_e = 0;
-	free(tracetab->tab);
-	free(tracetab);
 }

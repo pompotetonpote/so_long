@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:57:10 by pompote           #+#    #+#             */
-/*   Updated: 2023/02/14 16:43:03 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:05:32 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	check_line_size(t_map **map, t_params *elems)
 	while (map)
 	{
 		if (ft_strlen((*map)->map_line) != elems->line_size)
-			error_log("Error : different line size\n");
+			error_log("Error : different line size", elems, *map);
 		else
 		{
 			if ((*map)->next)
@@ -30,19 +30,20 @@ static void	check_line_size(t_map **map, t_params *elems)
 	}
 }
 
-static void	check_1(char *str, t_params *elems)
+static void	check_1(char *str, t_params *elems, t_map *map)
 {
 	if (elems->first_line == 0)
 		elems->first_line += 1;
 	while (*str)
 	{
 		if (*str != '1')
-			error_log("Error : first or last line not only composed of 1\n");
+			error_log("Error : first or last line not only composed of 1",
+				elems, map);
 		str++;
 	}
 }
 
-static void	check_interline(char *str, t_params *elems)
+static void	check_interline(char *str, t_params *elems, t_map *map)
 {
 	int	i;
 
@@ -62,12 +63,12 @@ static void	check_interline(char *str, t_params *elems)
 					elems->p += 1;
 			}
 			else
-				error_log("Error : unauthorized letter\n");
+				error_log("Error : unauthorized letter", elems, map);
 			i++;
 		}
 	}
 	else
-		error_log("Error : first or last letter != 1\n");
+		error_log("Error : first or last letter != 1", elems, map);
 }
 
 static int	check_1_square(t_map *map, t_params *elems)
@@ -75,23 +76,23 @@ static int	check_1_square(t_map *map, t_params *elems)
 	while (map)
 	{
 		if (map->next != NULL && elems->first_line == 0)
-			check_1(map->map_line, elems);
+			check_1(map->map_line, elems, map);
 		else if (map->next != NULL)
-			check_interline(map->map_line, elems);
+			check_interline(map->map_line, elems, map);
 		else if (map->next == NULL)
-			check_1(map->map_line, elems);
+			check_1(map->map_line, elems, map);
 		if (elems->e > 1)
-			error_log("Error : too many 'exits'\n");
+			error_log("Error : too many 'exits'", elems, map);
 		if (elems->p > 1)
-			error_log("Error : too many 'spawn point'\n");
+			error_log("Error : too many 'spawn point'", elems, map);
 		map = map->next;
 	}
 	if (elems->e < 1)
-		error_log("Error : need one exit\n");
+		error_log("Error : need one exit", elems, map);
 	if (elems->p < 1)
-		error_log("Error : need one spawn point\n");
+		error_log("Error : need one spawn point", elems, map);
 	if (elems->c < 1)
-		error_log("Error : need at leat one 'collectible'\n");
+		error_log("Error : need at leat one 'collectible'", elems, map);
 	return (1);
 }
 

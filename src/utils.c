@@ -6,30 +6,11 @@
 /*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:54:29 by yperonne          #+#    #+#             */
-/*   Updated: 2023/01/24 14:44:38 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/20 14:20:06 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-/*free content and linkedlist element*/
-void	free_map(t_map **map)
-{
-	t_map	*tmp;
-
-	if (!map || !(*map) || !(*map)->map_line)
-		return ;
-	while (*map)
-	{
-//		printf("free_map : line %s", (*map)->map_line);
-		free((*map)->map_line);
-//		printf("post_free");
-		tmp = (*map)->next;
-		free(*map);
-		*map = tmp;
-	}
-	*map = NULL;
-}
 
 void	ft_putstr(char *str)
 {

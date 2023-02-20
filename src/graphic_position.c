@@ -6,7 +6,7 @@
 /*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 09:51:19 by yeye              #+#    #+#             */
-/*   Updated: 2023/02/20 12:14:14 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:45:27 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,19 @@ void	pos_analyze_e(t_params *params, int delta)
 		mlx_destroy_window(params->vars->mlx, params->vars->win);
 		exit (EXIT_SUCCESS);
 	}
+	if (params->mtab->tab[params->pos + delta] == 'E')
+		params->e_switch = 1;
 }
 
 void	pos_analyze(t_params *params, int delta)
 {
 	pos_analyze_c(params, delta);
 	pos_analyze_e(params, delta);
+//	if (params->e_switch == 1)
+//	{
+//		params->e_switch = 0;
+//		put_img(params->vars, VORTEX, params);
+//	}
+//	else
+	put_img(params->vars, FLOOR, params);
 }

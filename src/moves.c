@@ -6,7 +6,7 @@
 /*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:00:27 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/20 11:04:18 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:33:27 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	leftm(t_vars *vars, t_params *params)
 	if (params->mtab->tab[params->pos - 1] != '1')
 	{
 		pos_analyze(params, -1);
-		put_img(vars, FLOOR, params);
 		params->pos--;
 		if (params->lmove == 0)
 			put_img(vars, LEFT1, params);
@@ -41,7 +40,6 @@ void	rightm(t_vars *vars, t_params *params)
 	if (params->mtab->tab[params->pos + 1] != '1')
 	{
 		pos_analyze(params, +1);
-		put_img(vars, FLOOR, params);
 		params->pos++;
 		if (params->rmove == 0)
 			put_img(vars, RIGHT1, params);
@@ -67,7 +65,6 @@ void	downm(t_vars *vars, t_params *params)
 		pos_analyze(params, +params->line_size);
 		params->lmove = 0;
 		params->rmove = 0;
-		put_img(vars, FLOOR, params);
 		params->pos = params->pos + params->line_size;
 		if (params->dmove == 0)
 		{
@@ -92,7 +89,6 @@ void	upm(t_vars *vars, t_params *params)
 		pos_analyze(params, -params->line_size);
 		params->lmove = 0;
 		params->rmove = 0;
-		put_img(vars, FLOOR, params);
 		params->pos = params->pos - params->line_size;
 		if (params->umove == 0)
 		{

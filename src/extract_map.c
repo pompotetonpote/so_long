@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   extract_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:16:21 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/15 10:47:09 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:09:12 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
 /* Check if linked list is up */
-/*void	linkedlist_check(t_map **map)
+void	linkedlist_check(t_map **map)
 {
 	int	i;
 
@@ -27,7 +27,7 @@
 			i++;
 		}
 	}
-}*/
+}
 
 void	line_break_suppression(t_map **map)
 {
@@ -62,7 +62,7 @@ t_map	*extract_map(char **argv)
 		return (0);
 	map = new_map_line(get_next_line(map_file));
 	if (!map->map_line)
-		error_log("Error : .ber file empty\n");
+		error_log("Error : .ber file empty", NULL, map);
 	head = map;
 	while (1)
 	{
@@ -70,12 +70,18 @@ t_map	*extract_map(char **argv)
 		if (!map->map_line)
 			break ;
 	}
-//	free(map->map_line);
+	printf("BefBef\n");
+	linkedlist_check(&head);
+	printf("Bef\n");
+	free(map->map_line);
+	printf("%s\n", map->map_line);
+	printf("Aft\n");
 //	free(map);	
 	map = get_bf_last_map_element(head);
 	map->next = NULL;
 	line_break_suppression(&head);
 //	linkedlist_check(&head);
 	close(map_file);
+	linkedlist_check(&head);
 	return (head);
 }

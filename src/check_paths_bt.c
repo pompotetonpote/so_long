@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_paths_bt.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 22:03:38 by pompote           #+#    #+#             */
-/*   Updated: 2023/02/14 15:23:01 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:42:33 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,33 @@ void	increm_elem(t_tab *maptab, int x, t_params *elems)
 		elems->pf_e += 1;
 }
 
+int	increm_exit(t_tab *mtab, int spa, int k, t_params *elems)
+{
+	if (mtab->tab[spa + k] == 'E')
+	{
+		elems->pf_e += 1;
+		return (0);
+	}
+	return (1);
+}
+
 void	trackm(t_tab *mtab, int spa, t_tab *tr_tb, t_params *elems)
 {
 	int	k;
 
 	k = (int) elems->line_size;
 	tr_tb->tab[spa] = 1;
-	if ((spa - k) >= 0 && mtab->tab[spa - k] != '1' && tr_tb->tab[spa - k] != 1)
+	if ((spa - k) >= 0 && mtab->tab[spa - k] != '1'
+		&& increm_exit(mtab, spa, -k, elems) && tr_tb->tab[spa - k] != 1)
 		trackm(mtab, spa - k, tr_tb, elems);
-	if ((spa - 1) >= 0 && mtab->tab[spa - 1] != '1' && tr_tb->tab[spa - 1] != 1)
+	if ((spa - 1) >= 0 && mtab->tab[spa - 1] != '1'
+		&& increm_exit(mtab, spa, -1, elems) && tr_tb->tab[spa - 1] != 1)
 		trackm(mtab, spa - 1, tr_tb, elems);
-	if ((spa + k) >= 0 && mtab->tab[spa + k] != '1' && tr_tb->tab[spa + k] != 1)
+	if ((spa + k) >= 0 && mtab->tab[spa + k] != '1'
+		&& increm_exit(mtab, spa, k, elems) && tr_tb->tab[spa + k] != 1)
 		trackm(mtab, spa + k, tr_tb, elems);
-	if ((spa + 1) >= 0 && mtab->tab[spa + 1] != '1' && tr_tb->tab[spa + 1] != 1)
+	if ((spa + 1) >= 0 && mtab->tab[spa + 1] != '1'
+		&& increm_exit(mtab, spa, 1, elems) && tr_tb->tab[spa + 1] != 1)
 		trackm(mtab, spa + 1, tr_tb, elems);
 	increm_elem(mtab, spa, elems);
 	mtab->tab[spa] = '1';

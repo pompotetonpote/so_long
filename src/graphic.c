@@ -6,7 +6,7 @@
 /*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:42:19 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/20 12:17:27 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/20 12:33:01 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	put_img(t_vars *vars, char *str, t_params *p)
 
 void	put_init(t_vars *vars, t_params *params)
 {
+	params->e_switch = 0;
 	if (params->mtab->tab[params->pos] == '1')
 		put_img(vars, WALL, params);
 	if (params->mtab->tab[params->pos] == 'P')
