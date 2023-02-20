@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   imgxpm.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:01:28 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/18 18:03:58 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/20 10:57:41 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMGXPM_H
 # define IMGXPM_H
-
 
 /* CHARACTER */
 # define BACK1      "./img/satoshi_back1.xpm"
@@ -33,6 +32,6 @@
 
 # define BLOCK      "./img/satoshiblock_solong.xpm"
 
-# define FLOOR      "./img/green_floor.xpm"
+# define FLOOR      "./img/pixel_soil_green.xpm"
 
 #endif

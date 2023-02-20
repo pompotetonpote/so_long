@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:25:58 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/18 18:13:48 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:17:10 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	main( int argc, char **argv)
 	check_args_errors(argc, argv);
 	map = extract_map (&argv[1]);
 	map_parsing(&map, params);
-	print_tab(params->mtab, params);
 	window_init(params->vars, params);
 	put_game(params->vars, params);
 	mlx_hook(params->vars->win, 17, 1L << 0, exit_window, params);

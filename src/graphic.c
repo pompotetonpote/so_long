@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:42:19 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/18 17:50:29 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:17:27 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	put_game(t_vars *vars, t_params *p)
 {
 	while (p->pos < ((int)p->line_size * p->lines))
 	{
-		printf("%d : %d\n", p->pos, (int)p->line_size * p->lines);
 		put_init(vars, p);
 		p->pos++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_paths.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:32:40 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/19 09:59:05 by yeye             ###   ########.fr       */
+/*   Updated: 2023/02/20 12:16:17 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,6 @@ void	check_path(t_map **map, t_params	*elems)
 	elems->mtab = filltab(map, elems->mtab, 1, elems);
 	elems->pf_c = 0;
 	elems->pf_e = 0;
+	free(tracetab->tab);
+	free(tracetab);
 }

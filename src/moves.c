@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeye <yeye@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:00:27 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/19 09:59:17 by yeye             ###   ########.fr       */
+/*   Updated: 2023/02/20 11:04:18 by pompote          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ void	leftm(t_vars *vars, t_params *params)
 		if (params->lmove == 1)
 			put_img(vars, STATICL, params);
 		if (params->lmove == 2)
+			put_img(vars, LEFT2, params);
+		if (params->lmove == 3)
 		{
 			params->lmove = 0;
-			put_img(vars, LEFT2, params);
+			put_img(vars, STATICL, params);
 		}
 		else
 			params->lmove++;
@@ -46,9 +48,11 @@ void	rightm(t_vars *vars, t_params *params)
 		if (params->rmove == 1)
 			put_img(vars, STATICR, params);
 		if (params->rmove == 2)
+			put_img(vars, RIGHT2, params);
+		if (params->rmove == 3)
 		{
 			params->rmove = 0;
-			put_img(vars, RIGHT2, params);
+			put_img(vars, STATICR, params);
 		}
 		else
 			params->rmove++;
