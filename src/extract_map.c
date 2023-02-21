@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extract_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:16:21 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/20 20:09:12 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/21 14:16:26 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	linkedlist_check(t_map **map)
 	{
 		while (*map)
 		{
-			printf("line %d: %s\n", i, (*map)->map_line);
+			printf("line %d: %s, -- %p\n", i, (*map)->map_line, &(*map)->map_line);
 			map = &(*map)->next;
 			i++;
 		}
@@ -58,8 +58,8 @@ t_map	*extract_map(char **argv)
 	int		map_file;
 
 	map_file = open(*argv, O_RDONLY);
-	if (map_file == -1)
-		return (0);
+	if (map_file != 0)
+		error_log("Erreur lecture .ber\n", NULL, NULL);
 	map = new_map_line(get_next_line(map_file));
 	if (!map->map_line)
 		error_log("Error : .ber file empty", NULL, map);
@@ -67,21 +67,14 @@ t_map	*extract_map(char **argv)
 	while (1)
 	{
 		map = add_new_map_line(&map, new_map_line(get_next_line(map_file)));
-		if (!map->map_line)
+		if (!map)
 			break ;
 	}
-	printf("BefBef\n");
+
 	linkedlist_check(&head);
-	printf("Bef\n");
-	free(map->map_line);
-	printf("%s\n", map->map_line);
-	printf("Aft\n");
-//	free(map);	
-	map = get_bf_last_map_element(head);
-	map->next = NULL;
+
 	line_break_suppression(&head);
-//	linkedlist_check(&head);
+
 	close(map_file);
-	linkedlist_check(&head);
 	return (head);
 }

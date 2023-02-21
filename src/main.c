@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:25:58 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/20 20:07:22 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/21 13:25:37 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,7 @@ int	main( int argc, char **argv)
 	mlx_hook(params->vars->win, 17, 1L << 0, exit_window, params);
 	mlx_key_hook(params->vars->win, key_hook, params);
 	mlx_loop(params->vars->mlx);
+	while (1);
+	
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic_position.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 09:51:19 by yeye              #+#    #+#             */
-/*   Updated: 2023/02/20 12:45:27 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/21 13:15:47 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,5 @@ void	pos_analyze(t_params *params, int delta)
 {
 	pos_analyze_c(params, delta);
 	pos_analyze_e(params, delta);
-//	if (params->e_switch == 1)
-//	{
-//		params->e_switch = 0;
-//		put_img(params->vars, VORTEX, params);
-//	}
-//	else
 	put_img(params->vars, FLOOR, params);
 }

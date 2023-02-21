@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:55:36 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/20 20:07:26 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/21 14:16:08 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,16 @@ void	free_map(t_map **map)
 {
 	t_map	*tmp;
 
-	ft_putstr("coucou");
-
-	printf("AAAAA__%s\n\n", (*map)->map_line);
+//	ft_putstr("coucou");
+//	printf("AAAAA__%s\n\n", (*map)->map_line);
 	if (!map || !(*map) || !(*map)->map_line)
 	{
-		printf("coucou2");
+//		printf("coucou2");
 		return ;
 	}
 	while (*map)
 	{
-		printf("Before-------------------%s\n", (*map)->map_line);
+//		printf("Before-------------------%s\n", (*map)->map_line);
 		free((*map)->map_line);
 		tmp = (*map);
 		(*map) = tmp->next;
@@ -38,6 +37,8 @@ void	free_map(t_map **map)
 
 void	free_params(t_params *params)
 {
+	if (!params)
+		return ;
 	if (params->mtab->tab)
 	{
 		free(params->mtab->tab);
@@ -53,7 +54,7 @@ void	error_log(char *str, t_params *params, t_map *map)
 	(void) params;
 	free_params(params);
 	free_map(&map);
-	perror(str);
+	ft_putstr(str);
 	exit (EXIT_SUCCESS);
 }
 
