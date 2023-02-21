@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:42:19 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/20 12:33:01 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/21 18:00:06 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	window_init(t_vars *vars, t_params *params)
 {
-	printf("window_init\n");
+	ft_putstr("window_init\n");
 	params->lines = params->lines / 2;
 	vars->mlx = mlx_init();
 	vars->win = mlx_new_window(vars->mlx, (params->line_size) * SIZE,

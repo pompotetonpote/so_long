@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:16:21 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/21 14:16:26 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:34:02 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ t_map	*extract_map(char **argv)
 	int		map_file;
 
 	map_file = open(*argv, O_RDONLY);
-	if (map_file != 0)
-		error_log("Erreur lecture .ber\n", NULL, NULL);
+	if (map_file <= 0)
+		error_log("Error : no such file .ber\n", NULL, NULL);
 	map = new_map_line(get_next_line(map_file));
-	if (!map->map_line)
-		error_log("Error : .ber file empty", NULL, map);
+	if (!map)
+		error_log("Error : .ber file empty\n", NULL, NULL);
 	head = map;
 	while (1)
 	{
@@ -70,11 +70,10 @@ t_map	*extract_map(char **argv)
 		if (!map)
 			break ;
 	}
-
+	if (head->next == NULL)
+		error_log("Error : only one line in .ber file\n", NULL, map);
 	linkedlist_check(&head);
-
 	line_break_suppression(&head);
-
 	close(map_file);
 	return (head);
 }

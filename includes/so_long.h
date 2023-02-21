@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:27:59 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/20 14:02:55 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/21 17:51:32 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void		free_map(t_map **map);
 void		ft_putstr(char *str);
 int			ft_rev_strncmp(const char *str1, const char *str2, size_t n);
 int			ft_lstsize(t_map *lst);
+void		ft_putnbr_fd(int n, int fd);
 
 /* Linked List Utils*/
 t_map		*new_map_line(char *line);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_paths_bt.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 22:03:38 by pompote           #+#    #+#             */
-/*   Updated: 2023/02/20 13:42:33 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/21 18:02:39 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	print_tab(t_tab *tab, t_params *elems)
 	{
 		while (j < (int) elems->line_size)
 		{
-			printf("%d", tab->tab[i]);
+			ft_putnbr_fd(tab->tab[i], 1);
 			i++;
 			j++;
 		}
 		j = 0;
-		printf("\n");
+		ft_putstr("\n");
 	}
 }
 

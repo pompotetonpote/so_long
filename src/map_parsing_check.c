@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing_check.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:57:10 by pompote           #+#    #+#             */
-/*   Updated: 2023/02/20 17:05:32 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/21 18:15:13 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	check_line_size(t_map **map, t_params *elems)
 	while (map)
 	{
 		if (ft_strlen((*map)->map_line) != elems->line_size)
-			error_log("Error : different line size", elems, *map);
+			error_log("Error : different line size\n", elems, *map);
 		else
 		{
 			if ((*map)->next)
@@ -37,7 +37,7 @@ static void	check_1(char *str, t_params *elems, t_map *map)
 	while (*str)
 	{
 		if (*str != '1')
-			error_log("Error : first or last line not only composed of 1",
+			error_log("Error : first or last line not only composed of 1\n",
 				elems, map);
 		str++;
 	}
@@ -63,12 +63,12 @@ static void	check_interline(char *str, t_params *elems, t_map *map)
 					elems->p += 1;
 			}
 			else
-				error_log("Error : unauthorized letter", elems, map);
+				error_log("Error : unauthorized letter\n", elems, map);
 			i++;
 		}
 	}
 	else
-		error_log("Error : first or last letter != 1", elems, map);
+		error_log("Error : first or last letter != 1\n", elems, map);
 }
 
 static int	check_1_square(t_map *map, t_params *elems)
@@ -82,17 +82,17 @@ static int	check_1_square(t_map *map, t_params *elems)
 		else if (map->next == NULL)
 			check_1(map->map_line, elems, map);
 		if (elems->e > 1)
-			error_log("Error : too many 'exits'", elems, map);
+			error_log("Error : too many 'exits'\n", elems, map);
 		if (elems->p > 1)
-			error_log("Error : too many 'spawn point'", elems, map);
+			error_log("Error : too many 'spawn point'\n", elems, map);
 		map = map->next;
 	}
 	if (elems->e < 1)
-		error_log("Error : need one exit", elems, map);
+		error_log("Error : need one exit\n", elems, map);
 	if (elems->p < 1)
-		error_log("Error : need one spawn point", elems, map);
+		error_log("Error : need one spawn point\n", elems, map);
 	if (elems->c < 1)
-		error_log("Error : need at leat one 'collectible'", elems, map);
+		error_log("Error : need at leat one 'collectible'\n", elems, map);
 	return (1);
 }
 

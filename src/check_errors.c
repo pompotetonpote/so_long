@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:55:36 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/21 14:16:08 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:26:50 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,12 @@ void	free_map(t_map **map)
 {
 	t_map	*tmp;
 
-//	ft_putstr("coucou");
-//	printf("AAAAA__%s\n\n", (*map)->map_line);
 	if (!map || !(*map) || !(*map)->map_line)
 	{
-//		printf("coucou2");
 		return ;
 	}
 	while (*map)
 	{
-//		printf("Before-------------------%s\n", (*map)->map_line);
 		free((*map)->map_line);
 		tmp = (*map);
 		(*map) = tmp->next;
@@ -39,22 +35,25 @@ void	free_params(t_params *params)
 {
 	if (!params)
 		return ;
-	if (params->mtab->tab)
+	ft_putstr("free_params\n");
+	if (!params->mtab->tab)
+		return ;
+	else
 	{
+		ft_putstr("free_params22222\n");
 		free(params->mtab->tab);
 		free(params->mtab);
+		free(params);
 	}
-	else if (params->mtab)
-		free(params->mtab);
 }
 
 void	error_log(char *str, t_params *params, t_map *map)
 {
-	(void) map;
 	(void) params;
-	free_params(params);
-	free_map(&map);
 	ft_putstr(str);
+	free_map(&map);
+	ft_putstr("INBETWEEN");
+//	free_params(params);
 	exit (EXIT_SUCCESS);
 }
 

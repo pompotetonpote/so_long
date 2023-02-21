@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:25:58 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/21 13:25:37 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:01:46 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int	key_hook(int keycode, t_params *params)
 		mlx_destroy_window(params->vars->mlx, params->vars->win);
 		exit(EXIT_SUCCESS);
 	}
-	printf("moves : %d\n", params->moves);
+	ft_putstr("moves : ");
+	ft_putnbr_fd(params->moves, 1);
+	ft_putstr("\n");
 	return (0);
 }
 
@@ -62,7 +64,5 @@ int	main( int argc, char **argv)
 	mlx_hook(params->vars->win, 17, 1L << 0, exit_window, params);
 	mlx_key_hook(params->vars->win, key_hook, params);
 	mlx_loop(params->vars->mlx);
-	while (1);
-	
 	return (0);
 }

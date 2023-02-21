@@ -6,24 +6,39 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 09:51:19 by yeye              #+#    #+#             */
-/*   Updated: 2023/02/21 13:15:47 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:00:26 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	put_result(t_params *params)
+{
+	if (params->pf_c <= 1)
+	{
+		ft_putnbr_fd(params->pf_c, 1);
+		ft_putstr(" item of ");
+		ft_putnbr_fd(params->c, 1);
+		ft_putstr(" collected!\n");
+	}
+	else
+	{
+		ft_putnbr_fd(params->pf_c, 1);
+		ft_putstr(" items of ");
+		ft_putnbr_fd(params->c, 1);
+		ft_putstr(" collected!\n");
+	}
+}
 
 void	pos_analyze_c(t_params *params, int delta)
 {
 	if (params->mtab->tab[params->pos + delta] == 'C')
 	{
 		params->pf_c += 1;
-		if (params->pf_c <= 1)
-			printf("%d item of %d collected!\n", params->pf_c, params->c);
-		else
-			printf("%d items of %d collected!\n", params->pf_c, params->c);
+		put_result(params);
 		if (params->pf_c == params->c)
 		{
-			printf("All items collected, the vortex is now open!\n");
+			ft_putstr("All items collected, the vortex is now open!\n");
 			params->pf_e = 1;
 		}
 	}
@@ -36,7 +51,7 @@ void	pos_analyze_e(t_params *params, int delta)
 	if (params->mtab->tab[params->pos + delta] == 'E'
 		&& params->pf_c == params->c)
 	{
-		printf("GAME OVER, CONGRATS!");
+		ft_putstr("GAME OVER, CONGRATS!");
 		mlx_destroy_window(params->vars->mlx, params->vars->win);
 		exit (EXIT_SUCCESS);
 	}
