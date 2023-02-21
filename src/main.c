@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:25:58 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/21 18:01:46 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:54:51 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	key_hook(int keycode, t_params *params)
 int	exit_window(int keycode, t_params *params)
 {
 	(void) keycode;
-	free (params);
+	(void) params;
 	exit (EXIT_SUCCESS);
 }
 

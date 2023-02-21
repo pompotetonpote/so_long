@@ -6,31 +6,31 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 22:03:38 by pompote           #+#    #+#             */
-/*   Updated: 2023/02/21 18:02:39 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:52:07 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	print_tab(t_tab *tab, t_params *elems)
-{
-	int	i;
-	int	j;
+// void	print_tab(t_tab *tab, t_params *elems)
+// {
+// 	int	i;
+// 	int	j;
 
-	i = 0;
-	j = 0;
-	while (i < elems->tab_tot_size)
-	{
-		while (j < (int) elems->line_size)
-		{
-			ft_putnbr_fd(tab->tab[i], 1);
-			i++;
-			j++;
-		}
-		j = 0;
-		ft_putstr("\n");
-	}
-}
+// 	i = 0;
+// 	j = 0;
+// 	while (i < elems->tab_tot_size)
+// 	{
+// 		while (j < (int) elems->line_size)
+// 		{
+// 			ft_putnbr_fd(tab->tab[i], 1);
+// 			i++;
+// 			j++;
+// 		}
+// 		j = 0;
+// 		ft_putstr("\n");
+// 	}
+// }
 
 int	find_spawn(t_tab *mtab, int spawn, t_params *elems)
 {

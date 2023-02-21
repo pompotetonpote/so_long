@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:03:13 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/20 19:59:30 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/21 18:52:37 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ void	map_parsing(t_map **map, t_params *elems)
 	elems->map_line_nbr = ft_lstsize(*map);
 	elems->tab_tot_size = elems->line_size * elems->map_line_nbr;
 	check_path(map, elems);
-	linkedlist_check(map);
 	free_map(map);
 }

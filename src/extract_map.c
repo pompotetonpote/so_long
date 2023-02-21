@@ -6,28 +6,28 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:16:21 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/21 18:34:02 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:51:40 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
 /* Check if linked list is up */
-void	linkedlist_check(t_map **map)
-{
-	int	i;
+// void	linkedlist_check(t_map **map)
+// {
+// 	int	i;
 
-	i = 1;
-	if (map)
-	{
-		while (*map)
-		{
-			printf("line %d: %s, -- %p\n", i, (*map)->map_line, &(*map)->map_line);
-			map = &(*map)->next;
-			i++;
-		}
-	}
-}
+// 	i = 1;
+// 	if (map)
+// 	{
+// 		while (*map)
+// 		{
+// 			printf("line %d: %s, -- %p\n", i, (*map)->map_line, &(*map)->map_line);
+// 			map = &(*map)->next;
+// 			i++;
+// 		}
+// 	}
+// }
 
 void	line_break_suppression(t_map **map)
 {
@@ -72,7 +72,6 @@ t_map	*extract_map(char **argv)
 	}
 	if (head->next == NULL)
 		error_log("Error : only one line in .ber file\n", NULL, map);
-	linkedlist_check(&head);
 	line_break_suppression(&head);
 	close(map_file);
 	return (head);
