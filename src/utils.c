@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:54:29 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/21 17:59:25 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/22 09:51:25 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_rev_strncmp(const char *str1, const char *str2, size_t n)
 	i = ft_strlen(str2);
 	if (n == 0)
 		return (0);
-	while ((str1[n] == str2[i]) && (i > 0 && n > 0)) // && i < n - 1)
+	while ((str1[n] == str2[i]) && (i > 0 && n > 0))
 	{
 		i--;
 		n--;

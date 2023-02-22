@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:16:21 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/21 18:51:40 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/22 09:51:04 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 // 	{
 // 		while (*map)
 // 		{
-// 			printf("line %d: %s, -- %p\n", i, (*map)->map_line, &(*map)->map_line);
+// 			printf("line %d: %s, -- %p\n", i,
+//			  (*map)->map_line, &(*map)->map_line);
 // 			map = &(*map)->next;
 // 			i++;
 // 		}
