@@ -6,7 +6,7 @@
 /*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:55:36 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/22 09:52:54 by yperonne         ###   ########.fr       */
+/*   Updated: 2023/02/22 10:23:03 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	error_log(char *str, t_params *params, t_map *map)
 	(void) params;
 	ft_putstr(str);
 	free_map(&map);
-	ft_putstr("INBETWEEN");
 	exit (EXIT_SUCCESS);
 }
 /*free (params) not useful*/
