@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   imgxpm.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pompote <pompote@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yperonne <yperonne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:01:28 by yperonne          #+#    #+#             */
-/*   Updated: 2023/02/20 10:57:41 by pompote          ###   ########.fr       */
+/*   Updated: 2023/02/26 14:14:47 by yperonne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@
 # define RIGHT2     "./img/satoshi_walk_right2.xpm"
 
 /* FEATURES*/
-# define WALL       "./img/wall.xpm"
+# define WALL       "./img/wallsog.xpm"
+# define WALL1       "./img/wall.xpm"
 
 # define VORTEX     "./img/vortex.xpm"
 
